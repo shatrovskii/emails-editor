@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emails Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Emails editor style sheet -->
+    <link rel="stylesheet" href="components/emails-editor/css/emails-editor.css">
+  </head>
+  <body ng-controller="mainCtrl as $ctrl">
+    <section class="section-main">
+      <div class="component-wrapper">
+        <!-- Here goes the editor component -->
+        <emails-editor model="$ctrl.emailsEditor"
+                       on-create="$ctrl.emailsEditor.addValues(values)"
+                       on-delete="$ctrl.emailsEditor.removeValue(value)"></emails-editor>
+      </div>
+      <input class="component-control" type="button" value="Add email" ng-click="$ctrl.addRandomEmail()">
+      <input class="component-control" type="button" value="Get emails count" ng-click="$ctrl.alertEmailsLength()">
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/random.js"></script>
+    <!-- Emails editor component -->
+    <script src="components/emails-editor/js/emails-editor.js"></script>
+  </body>
+</html>

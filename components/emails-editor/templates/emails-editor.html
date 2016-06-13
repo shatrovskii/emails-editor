@@ -1,0 +1,29 @@
+<div class="emails-editor">
+  <p class="emails-editor__header">{{$ctrl.model.title}}</p>
+  <div class="emails-editor__component" 
+       ng-click="$ctrl.focusInput()"
+       ng-paste="$ctrl.handlePaste($event)">
+    <span class="emails-editor__list">
+      <span class="emails-editor__item" 
+            ng-repeat="email in $ctrl.model.emails"
+            ng-class="{'emails-editor__item--invalid': !email.valid}">
+        <div  class="emails-editor__item-content">
+          {{email.value}}
+        </div>
+        <div class="emails-editor__icon-wrapper" 
+             ng-click="$ctrl.onDelete({value: email.value})">
+             <span class="email-editor__icon email-editor__icon--x"></span>
+        </div>
+      </span>
+    </span>
+    <input type="text"
+           class="emails-editor__input" 
+           spellcheck="false" 
+           placeholder="add more people..." 
+           ng-keydown="$ctrl.inputKeyDown($event)"
+           ng-model="$ctrl.inputValue"
+           ng-blur="$ctrl.saveValue()"
+           ng-change="$ctrl.resizeInput()">
+    <div class="emails-editor__input-buffer"></div>
+  </div>
+</div>
