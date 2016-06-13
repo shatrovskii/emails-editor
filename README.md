@@ -14,12 +14,15 @@ Emails Editor это компонет для редактирования спи
     
 Добавьте компонент при помощи тега:
 
-    <emails-editor model="$ctrl.emailsEditor" on-create="$ctrl.emailsEditor.addValues(values)" on-delete="$ctrl.emailsEditor.removeValue(value)"></emails-editor>
+    <emails-editor model="$ctrl.emailsEditor"
+        on-create="$ctrl.emailsEditor.addValues(values)"
+        on-delete="$ctrl.emailsEditor.removeValue(value)">
+    </emails-editor>
     
 Добавьте зависимость от модуля компонента в своё приложение и создайте объект, управляющий состоянием объекта:
 
     var app = angular.module('testApp', ['emailsEditor'])
-    
+    ...
     ctrl.emailsEditor = new EmailsEditor('Share \u201cBoard name\u201c with others');
     
 Требования
